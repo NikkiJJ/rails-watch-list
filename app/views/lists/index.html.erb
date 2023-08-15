@@ -1,10 +1,19 @@
-<h1>List</h1>
+<div class="container">
+
+  <h1>My lists</h1>
+
+  <div class="list-card">
+      <ul>
+        <div class="list-catogory">
+          <% @lists.each do |list| %>
+            <li><%= link_to list.name, list_path(list) %></li>
+            <%= link_to 'Create a bookmark', new_list_bookmark_path(list) %>
+          <% end %>
+        </div>
+      </ul>
+  </div>
+
+    <%= link_to 'Create a list', new_list_path %>
 
 
-  <ul>
-    <% @lists.each do |list| %>
-      <li><%= link_to list.name, list_path(list) %></li>
-    <% end %>
-  </ul>
-
-  <%= link_to 'Create a list', lists_new_path %>
+  </div>

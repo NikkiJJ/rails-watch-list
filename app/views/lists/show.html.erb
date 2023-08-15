@@ -1,5 +1,12 @@
 <h1> <%= @list.name %></h1>
 
+<% @list.movies.each do |movie| %>
+    <% bookmark = Bookmark.find_by(list: @list, movie: movie)  %>
+      <li><%= movie.title %></li>
+       <li><%= movie.overview %></li>
+       <li> <%= bookmark.comment %></li>
+    <% end %>
+
 
 <%= link_to 'Delete',
   list_path(@list),
