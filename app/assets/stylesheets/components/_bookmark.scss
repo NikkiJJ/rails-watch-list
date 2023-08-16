@@ -1,20 +1,27 @@
-.row  {
-  display: flex;
-  justify-content: space-evenly;
+h3 {
+  color: $headers-font;
 }
 
-.category-card {
+.bookmark-card {
   border-color: black;
   background-color: rgb(247, 249, 248);
-  width: 200px;
+  width: 300px;
   margin-top: 50px;
   box-shadow: 2px 2px 8px #313030;
-  height: 200px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-content: space-between;
   align-items: center;
-  text-shadow: 2px 2px 8px #313030;
   font-family: 'Merriweather', serif;
   padding-top: 50px;
+  text-align: center;
+  padding-bottom: 50px;
+  h5 {
+    margin: 10px 10px 10px 10px;
+  }
+  p {
+    margin: 10px 10px 10px 10px;
+  }
+
 }

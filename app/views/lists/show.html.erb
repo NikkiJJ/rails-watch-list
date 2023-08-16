@@ -1,16 +1,23 @@
-<h1> <%= @list.name %></h1>
+<div class="banner" style="background-image: url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80')">
+    <h1> <%= @list.name %></h1>
+</div>
+  <h3>My Bookmarks</h3>
+    <% @list.movies.each do |movie| %>
+        <% bookmark = Bookmark.find_by(list: @list, movie: movie)  %>
+          <div class="bookmark-card" style="background-image url('https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=859&q=80')">
+              <h5><%= movie.title %></h5>
+              <p><%= movie.overview %></p>
+              <p><%= bookmark.comment %></p>
+              <button class="button"><%= link_to 'Delete bookmark', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+              </button>
+          </div>
+        <% end %>
+<div>
+    <button class="button"><%= link_to 'Delete',
+      list_path(@list),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %></button>
 
-<% @list.movies.each do |movie| %>
-    <% bookmark = Bookmark.find_by(list: @list, movie: movie)  %>
-      <li><%= movie.title %></li>
-       <li><%= movie.overview %></li>
-       <li> <%= bookmark.comment %></li>
-    <% end %>
 
-
-<%= link_to 'Delete',
-  list_path(@list),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
-
-<%= link_to 'Back to lists', lists_path %>
+    <button class="button"><%= link_to 'Back to lists', lists_path %></button>
+</div>
