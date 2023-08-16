@@ -1,19 +1,18 @@
 <div class="container">
 
-  <h1>My lists</h1>
-
-  <div class="list-card">
-      <ul>
-        <div class="list-catogory">
-          <% @lists.each do |list| %>
-            <li><%= link_to list.name, list_path(list) %></li>
-            <%= link_to 'Create a bookmark', new_list_bookmark_path(list) %>
-          <% end %>
-        </div>
-      </ul>
+  <div class="banner" style="background-image: url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80')">
+      <h1>My lists</h1>
+      <button class="create-link"><%= link_to 'Create a list', new_list_path %></button>
   </div>
 
-    <%= link_to 'Create a list', new_list_path %>
+  <div class="row">
+      <% @lists.each do |list| %>
+          <div class="col-md-4" class="card-category">
+            <%= link_to list.name, list_path(list) %>
+            <%= link_to 'Create a bookmark', new_list_bookmark_path(list) %>
+          </div>
+      <% end %>
+   </div>
 
 
   </div>
