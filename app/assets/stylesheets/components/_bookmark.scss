@@ -7,6 +7,7 @@ h3 {
   background-color: rgb(247, 249, 248);
   width: 300px;
   margin-top: 50px;
+  margin-left: 20px;
   box-shadow: 2px 2px 8px #313030;
   height: 300px;
   display: flex;
@@ -24,4 +25,9 @@ h3 {
     margin: 10px 10px 10px 10px;
   }
 
+}
+
+.bookmark-header {
+  text-align: center;
+  margin-top: 20px;
 }
