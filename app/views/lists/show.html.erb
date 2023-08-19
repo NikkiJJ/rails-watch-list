@@ -2,6 +2,16 @@
     <h1> <%= @list.name %></h1>
 </div>
   <h3 class="bookmark-header">My Bookmarks</h3>
+
+  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+
+<%= cl_image_tag("g9fad40myc9is5qxi9ng",
+      width: 400, height: 300, crop: :fill) %>
+
+<!-- for face detection -->
+<%= cl_image_tag("ertxio1pchskvkpbobmb",
+      width: 150, height: 150, crop: :thumb, gravity: :face) %>
+
     <% @list.movies.each do |movie| %>
         <% bookmark = Bookmark.find_by(list: @list, movie: movie)  %>
           <div class="bookmark-card" style="background-image url('https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=859&q=80')">
